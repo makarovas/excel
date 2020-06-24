@@ -2,6 +2,8 @@ const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 module.exports = {
   context: path.resolve(__dirname, "src"),
   mode: "development",
@@ -15,6 +17,16 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "index.html",
     }),
-    new CopyPlugin(),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "./src/favicon.ico"),
+          to: path.resolve(__dirname, "./dist"),
+        },
+      ],
+    }),
+    new MiniCssExtractPlugin({
+      filename: "bundle.[hash].css",
+    }),
   ],
 };
