@@ -1,0 +1,23 @@
+@import 'variables';
+@import 'mixins';
+
+.excel__header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: $header-height;
+  padding: $indent-s $indent-xs 0 ;
+  display: flex;
+  justify-content: space-between;
+
+  & .input {
+  position: relative;
+
+  }
+
+  & .button {
+    position: relative;
+
+  }
+}
