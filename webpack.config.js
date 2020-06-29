@@ -55,6 +55,9 @@ module.exports = {
         collapseWhitespace: isProd,
       },
     }),
+    new MiniCssExtractPlugin({
+      filename: filename('css'),
+    }),
     new CopyPlugin({
       patterns: [
         {
@@ -62,9 +65,6 @@ module.exports = {
           to: path.resolve(__dirname, './dist'),
         },
       ],
-    }),
-    new MiniCssExtractPlugin({
-      filename: filename('css'),
     }),
   ],
   module: {
